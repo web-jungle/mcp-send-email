@@ -1,6 +1,7 @@
 # Resend experimental MCP (on Claude)
 
 How to use: 
+- npm install && npm run build 
 - on Claude desktop, add below as MCP config
 ```
 {
