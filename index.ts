@@ -3,7 +3,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY!);
 
 // Create server instance
 const server = new McpServer({
@@ -21,10 +21,10 @@ server.tool(
   },
   async ({ to, subject, content }) => {
     const data = await resend.emails.send({
-      from: "hello@yoko.dev",
+      from: "me@yoko.dev",
       to,
       subject,
-      text: content,
+      react: content,
     });
 
     return {
