@@ -26,7 +26,10 @@ Then go to Cursor Settings -> MCP -> Add new MCP server
 
 You can get Resend API key here: https://resend.com/
 
-Now you can test out sending emails by going to email.md, replace the to: email address, select all in email md, and hit cmd+l. You can now tell cursor to "send this as an email" in the chat
+Now you can test out sending emails by going to email.md, replace the to: email address, select all in email md, and hit cmd+l. You can now tell cursor to "send this as an email" in the chat. Make sure Cursor chat is in Agent mode by selecting "Agent" on lower left side dropdown
+
+<img width="441" alt="Screenshot 2025-02-25 at 9 13 05 AM" src="https://github.com/user-attachments/assets/b07e9cbf-42d8-4910-8e90-3761d8d3bc06" />
+
 
 **Claude desktop**
 
