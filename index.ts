@@ -2,8 +2,22 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 import { Resend } from "resend";
+import minimist from "minimist";
 
-const resend = new Resend(process.env.RESEND_API_KEY!);
+// Parse command line arguments
+const argv = minimist(process.argv.slice(2));
+
+// Get API key from command line argument or fall back to environment variable
+const apiKey = argv.key || process.env.RESEND_API_KEY;
+
+if (!apiKey) {
+  console.error(
+    "No API key provided. Please set RESEND_API_KEY environment variable or use --key argument"
+  );
+  process.exit(1);
+}
+
+const resend = new Resend(apiKey);
 
 // Create server instance
 const server = new McpServer({
