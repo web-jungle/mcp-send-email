@@ -35,7 +35,7 @@ server.tool(
   },
   async ({ to, subject, content }) => {
     const data = await resend.emails.send({
-      from: "me@yoko.dev",
+      from: "me@yoko.dev", // TODO - you should replace this with your own email! Verify domain here on Resend https://resend.com/domains
       to,
       subject,
       text: content,
