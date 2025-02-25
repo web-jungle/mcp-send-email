@@ -42,5 +42,6 @@ Add the following MCP config
 ```
 
 **Develop**
+
 `npm install`
 `npm run build`
