@@ -13,7 +13,9 @@ https://github.com/user-attachments/assets/8c05cbf0-1664-4b3b-afb1-663b46af3464
 
 **Cursor**
 
-Go to Cursor Settings -> MCP -> Add new MCP server
+Clone this project locally, run `npm install`, `npm run build` (you should now see a /build/index.js generated - this is the MCP server script!)
+
+Then go to Cursor Settings -> MCP -> Add new MCP server
 
 - Name = [choose your own name]
 - Type = command
