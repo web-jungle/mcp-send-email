@@ -18,6 +18,7 @@ You can get Resend API key here: https://resend.com/
 
 
 **Claude desktop**
+
 Add the following MCP config
 ```
 {
