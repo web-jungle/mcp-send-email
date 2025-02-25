@@ -31,14 +31,14 @@ server.tool(
   {
     to: z.string().email().describe("Recipient email address"),
     subject: z.string().describe("Email subject line"),
-    content: z.string().describe("Main email content"),
+    content: z.string().describe("Plain text email content"),
   },
   async ({ to, subject, content }) => {
     const data = await resend.emails.send({
       from: "me@yoko.dev",
       to,
       subject,
-      react: content,
+      text: content,
     });
 
     return {
