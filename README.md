@@ -1,6 +1,11 @@
-# Email sending MCP
+# Email sending MCP 💌
 
 This is a simple MCP server that sends emails using Resend's API. Why? Now you can let Cursor or Claude Desktop compose emails for you and send it right away without having to copy and paste the email content.
+
+Built with: 
+- [Resend](https://resend.com/)
+- [Anthropic MCP](https://docs.anthropic.com/en/docs/agents-and-tools/mcp)
+- [Cursor](https://cursor.so/)
 
 **DEMO**
 
