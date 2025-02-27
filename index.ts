@@ -29,20 +29,38 @@ server.tool(
   "send-email",
   "Send an email using Resend",
   {
+    from: z
+      .string()
+      .email()
+      .nonempty()
+      .describe(
+        "Sender email address. This must be provided explicitly provided by the end user and cannot be empty. Do not automatically populate this."
+      ),
     to: z.string().email().describe("Recipient email address"),
     subject: z.string().describe("Email subject line"),
     content: z.string().describe("Plain text email content"),
   },
-  async ({ to, subject, content }) => {
-    const data = await resend.emails.send({
-      from: "me@yoko.dev", // TODO - you should replace this with your own email! Verify domain here on Resend https://resend.com/domains
+  async ({ from, to, subject, content }) => {
+    const response = await resend.emails.send({
+      from,
       to,
       subject,
       text: content,
     });
 
+    if (response.error) {
+      throw new Error(
+        `Email failed to send: ${JSON.stringify(response.error)}`
+      );
+    }
+
     return {
-      content: [{ type: "text", text: `Email sent successfully! ${data}` }],
+      content: [
+        {
+          type: "text",
+          text: `Email sent successfully! ${JSON.stringify(response.data)}`,
+        },
+      ],
     };
   }
 );
