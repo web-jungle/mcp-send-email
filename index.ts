@@ -46,7 +46,13 @@ server.tool(
   {
     to: z.string().email().describe("Recipient email address"),
     subject: z.string().describe("Email subject line"),
-    content: z.string().describe("Plain text email content"),
+    text: z.string().describe("Plain text email content"),
+    html: z
+      .string()
+      .optional()
+      .describe(
+        "HTML email content. When provided, the plain text argument MUST be provided as well."
+      ),
     scheduledAt: z
       .string()
       .optional()
@@ -61,7 +67,7 @@ server.tool(
             .email()
             .nonempty()
             .describe(
-              "Sender email address. This must be provided explicitly provided by the end user and cannot be empty. Do not automatically populate this."
+              "Sender email address. You MUST ask the user for this parameter. Under no circumstance provide it yourself"
             ),
         }
       : {}),
@@ -73,12 +79,12 @@ server.tool(
             .array()
             .optional()
             .describe(
-              "Optional email addresses for the email readers to reply to. This must be provided explicitly provided by the end user. Do not automatically populate this."
+              "Optional email addresses for the email readers to reply to. You MUST ask the user for this parameter. Under no circumstance provide it yourself"
             ),
         }
       : {}),
   },
-  async ({ from, to, subject, content, replyTo, scheduledAt }) => {
+  async ({ from, to, subject, text, html, replyTo, scheduledAt }) => {
     const fromEmailAddress = from ?? senderEmailAddress;
     const replyToEmailAddresses = replyTo ?? replierEmailAddresses;
 
@@ -100,7 +106,8 @@ server.tool(
       to,
       subject,
       scheduledAt,
-      text: content,
+      text,
+      html,
       from: fromEmailAddress,
       replyTo: replyToEmailAddresses,
     });
