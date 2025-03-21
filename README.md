@@ -10,6 +10,14 @@ Built with:
 - [Anthropic MCP](https://docs.anthropic.com/en/docs/agents-and-tools/mcp)
 - [Cursor](https://cursor.so/)
 
+## Features
+
+- Send plain text and HTML emails
+- Schedule emails for future delivery
+- Add CC and BCC recipients
+- Configure reply-to addresses
+- Customizable sender email (requires verification)
+
 **DEMO**
 
 https://github.com/user-attachments/assets/8c05cbf0-1664-4b3b-afb1-663b46af3464
@@ -30,7 +38,7 @@ You can get Resend API key here: https://resend.com/
 
 Now you can test out sending emails by going to email.md, replace the to: email address, select all in email md, and hit cmd+l. You can now tell cursor to "send this as an email" in the chat. Make sure Cursor chat is in Agent mode by selecting "Agent" on lower left side dropdown
 
-<img width="441" alt="Screenshot 2025-02-25 at 9 13 05 AM" src="https://github.com/user-attachments/assets/b07e9cbf-42d8-4910-8e90-3761d8d3bc06" />
+<img width="441" alt="Screenshot 2025-02-25 at 9 13 05 AM" src="https://github.com/user-attachments/assets/b07e9cbf-42d8-4910-8e90-3761d8d3bc06" />
 
 **Claude desktop**
 

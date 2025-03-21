@@ -53,6 +53,18 @@ server.tool(
       .describe(
         "HTML email content. When provided, the plain text argument MUST be provided as well."
       ),
+    cc: z
+      .string()
+      .email()
+      .array()
+      .optional()
+      .describe("Optional array of CC email addresses. You MUST ask the user for this parameter. Under no circumstance provide it yourself"),
+    bcc: z
+      .string()
+      .email()
+      .array()
+      .optional()
+      .describe("Optional array of BCC email addresses. You MUST ask the user for this parameter. Under no circumstance provide it yourself"),
     scheduledAt: z
       .string()
       .optional()
@@ -84,7 +96,7 @@ server.tool(
         }
       : {}),
   },
-  async ({ from, to, subject, text, html, replyTo, scheduledAt }) => {
+  async ({ from, to, subject, text, html, replyTo, scheduledAt, cc, bcc }) => {
     const fromEmailAddress = from ?? senderEmailAddress;
     const replyToEmailAddresses = replyTo ?? replierEmailAddresses;
 
@@ -102,15 +114,47 @@ server.tool(
       throw new Error("replyTo argument must be provided.");
     }
 
-    const response = await resend.emails.send({
+    console.error(`Debug - Sending email with from: ${fromEmailAddress}`);
+    
+    // Explicitly structure the request with all parameters to ensure they're passed correctly
+    const emailRequest: {
+      to: string;
+      subject: string;
+      text: string;
+      from: string;
+      replyTo: string | string[];
+      html?: string;
+      scheduledAt?: string;
+      cc?: string[];
+      bcc?: string[];
+    } = {
       to,
       subject,
-      scheduledAt,
       text,
-      html,
       from: fromEmailAddress,
       replyTo: replyToEmailAddresses,
-    });
+    };
+    
+    // Add optional parameters conditionally
+    if (html) {
+      emailRequest.html = html;
+    }
+    
+    if (scheduledAt) {
+      emailRequest.scheduledAt = scheduledAt;
+    }
+    
+    if (cc) {
+      emailRequest.cc = cc;
+    }
+    
+    if (bcc) {
+      emailRequest.bcc = bcc;
+    }
+    
+    console.error(`Email request: ${JSON.stringify(emailRequest)}`);
+
+    const response = await resend.emails.send(emailRequest);
 
     if (response.error) {
       throw new Error(
