@@ -62,12 +62,12 @@ Select "MCP" from the left sidebar and click "Add new global MCP server".
 Add the following config:
 ```json
 {
-	"mcpServers": {
-		"resend": {
-			"type": "command",
-			"command": "node ABSOLUTE_PATH_TO_MCP_SEND_EMAIL_PROJECT/build/index.js --key=YOUR_RESEND_API_KEY"
-		}
-	}
+  "mcpServers": {
+    "resend": {
+      "type": "command",
+      "command": "node ABSOLUTE_PATH_TO_MCP_SEND_EMAIL_PROJECT/build/index.js --key=YOUR_RESEND_API_KEY"
+    }
+  }
 }
 ```
 
@@ -101,18 +101,19 @@ Open Claude Desktop settings and navigate to the "Developer" tab. Click `Edit Co
 
 Add the following config:
 
-```json{
-	"mcpServers": {
-		"resend": {
-			"command": "node",
-			"args": [
-				"ABSOLUTE_PATH_TO_MCP_SEND_EMAIL_PROJECT/build/index.js"
-			],
-			"env": {
-				"RESEND_API_KEY": "YOUR_RESEND_API_KEY",
-			}
-		}
+```json
+{
+  "mcpServers": {
+    "resend": {
+      "command": "node",
+      "args": [
+        "ABSOLUTE_PATH_TO_MCP_SEND_EMAIL_PROJECT/build/index.js"
+      ],
+      "env": {
+        "RESEND_API_KEY": "YOUR_RESEND_API_KEY",
+      }
     }
+  }
 }
 ```
 
@@ -130,5 +131,7 @@ You can get the absolute path to your build script by right-clicking on the `/bu
 3. Test the sending
 
 Close and reopen Claude Desktop. Verify that the `resend` tool is available in the Claude developer settings.
+
+![Claude Desktop developer settings with Resend MCP server showing](https://github.com/user-attachments/assets/be9549e5-eaef-4946-b10a-e708c1864acf)
 
 Chat with Claude and tell it to send you an email using the `resend` tool.
