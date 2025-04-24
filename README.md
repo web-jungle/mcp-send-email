@@ -26,9 +26,7 @@ https://github.com/user-attachments/assets/8c05cbf0-1664-4b3b-afb1-663b46af3464
 
 ## Setup
 
-Currently, you must build the project locally to use this MCP server. Once you have the project built, you can point either in [Cursor](#cursor) or [Claude Desktop](#claude-desktop) to the MCP server script.
-
-Once you configure the MCP server, you can use it in any Cursor or Claude Desktop chat.
+Currently, you must build the project locally to use this MCP server. Then add the server in [Cursor](#cursor) or [Claude Desktop](#claude-desktop) to use it in any Cursor or Claude Desktop chat.
 
 1. Clone this project locally.
 
