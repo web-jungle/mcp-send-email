@@ -1,4 +1,4 @@
-to: ykhli1013@gmail.com
+to: YOUR_EMAIL_ADDRESS
 subject: Test!
 content: This is a test email.
 

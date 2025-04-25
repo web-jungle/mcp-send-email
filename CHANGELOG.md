@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Improved instructions in README
+- Removed test email address from example email.md
+
+### Added
 - CC and BCC support for email recipients
 - Full request/response logging for improved debugging
 - New "Features" section in README documentation
@@ -27,4 +31,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Basic email sending functionality
 - HTML email support
 - Email scheduling capability
-- Reply-to addressing 
+- Reply-to addressing
