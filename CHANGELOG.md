@@ -5,10 +5,15 @@ All notable changes to the MCP Send Email project will be documented in this fil
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.1.0] - 2025-07-08
 
 ### Added
 - List audiences tool for Resend
+- Removed React Email dependencies since it's not used in the project
+- Updated Resend to latest version
+
+## [Unreleased]
+
 - Improved instructions in README
 - Removed test email address from example email.md
 

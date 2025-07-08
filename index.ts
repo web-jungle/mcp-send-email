@@ -179,9 +179,11 @@ server.tool(
 
 server.tool(
 	"list-audiences",
-	"List all audiences from Resend",
+	"List all audiences from Resend. This tool is useful for getting the audience ID to help the user find the audience they want to use for other tools. If you need an audience ID, you MUST use this tool to get all available audiences and then ask the user to select the audience they want to use.",
 	{},
 	async () => {
+		console.error("Debug - Listing audiences");
+
 		const response = await resend.audiences.list();
 
 		if (response.error) {
