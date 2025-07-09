@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - List audiences tool for Resend
 - Removed React Email dependencies since it's not used in the project
 - Updated Resend to latest version
+- Add biome for formatting
 
 ## [Unreleased]
 
