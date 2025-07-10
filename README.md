@@ -19,6 +19,7 @@ Built with:
 - Add CC and BCC recipients
 - Configure reply-to addresses
 - Customizable sender email (requires verification)
+- List Resend audiences
 
 ## Demo
 
